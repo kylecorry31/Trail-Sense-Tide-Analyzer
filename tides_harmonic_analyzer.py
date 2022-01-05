@@ -2,8 +2,11 @@ import matplotlib.pyplot as plt
 import math
 
 # the tide.csv file is in 1 minute increments (TODO: allow the time of each sample to be specified / the interval)
-d = list(map(float, open('tide.csv', 'r').read().split(',')))
-x = [i/60 for i in range(len(d))]
+# d = list(map(float, open('tide.csv', 'r').read().split(',')))
+
+d = list(map(lambda line: float(line.split(',')[1]), open('noaa-tides.csv', 'r').readlines()[1:]))
+
+x = [i/10 for i in range(len(d))]
 
 def get_harmonic(f, x, y):
     cos = 0
@@ -60,7 +63,7 @@ z0 = (0, sum(d) / len(d), 0)
 
 harmonics = [m2, s2, n2, k1, m4, o1, p1, l2, k2, ms4, z0]
 
-print('\n'.join([str([math.degrees(h[0]), h[1], h[2]]) for h in harmonics]))
+print('\n'.join([str([math.degrees(h[0]), h[1], h[2] % 360]) for h in harmonics]))
 
 wave = get_wave(harmonics, x)
 
