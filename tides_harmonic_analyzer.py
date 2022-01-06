@@ -33,7 +33,7 @@ def get_harmonic(f, x, y):
     sin *= 2 / x_range
     cos *= 2 / x_range
 
-    phase = -math.degrees(math.atan2(sin, cos))
+    phase = math.degrees(math.atan2(sin, cos))
     amplitude = math.hypot(sin, cos)
 
     return (f, amplitude, phase)
@@ -44,7 +44,7 @@ def get_wave(harmonics, x):
     for i in range(len(x)):
         total = 0
         for h in harmonics:
-            total += h[1] * math.cos(h[0] * x[i] - math.radians(h[2]))
+            total += h[1] * math.cos(h[0] * x[i] + math.radians(h[2]))
         wave.append(total)
     return wave
 
