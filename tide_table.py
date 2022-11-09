@@ -2,17 +2,29 @@ import datetime
 import matplotlib.pyplot as plt
 import math
 
-start = datetime.datetime(2021, 1, 1)
+start = datetime.datetime(2022, 1, 1)
 
 tides = [
-    (False, (datetime.datetime(2021, 1, 1, 3, 59) - start).total_seconds() / 3600, -0.52),
-    (True, (datetime.datetime(2021, 1, 1, 11, 8) - start).total_seconds() / 3600, 4.5),
-    (False, (datetime.datetime(2021, 1, 1, 17, 18) - start).total_seconds() / 3600, -0.42),
-    (True, (datetime.datetime(2021, 1, 1, 23, 33) - start).total_seconds() / 3600, 3.63),
-    (False, (datetime.datetime(2021, 1, 2, 4, 54) - start).total_seconds() / 3600, -0.64),
-    (True, (datetime.datetime(2021, 1, 2, 12, 2) - start).total_seconds() / 3600, 4.66),
-    (False, (datetime.datetime(2021, 1, 2, 18, 14) - start).total_seconds() / 3600, -0.49),
-    (True, (datetime.datetime(2021, 1, 3, 0, 26) - start).total_seconds() / 3600, 3.81),
+    (True, (datetime.datetime(2022, 1, 10, 1, 42) - start).total_seconds() / 3600, 3.25),
+    (False, (datetime.datetime(2022, 1, 10, 8, 23) - start).total_seconds() / 3600, 0.61),
+    (True, (datetime.datetime(2022, 1, 10, 14, 0) - start).total_seconds() / 3600, 2.71),
+    (False, (datetime.datetime(2022, 1, 10, 19, 27) - start).total_seconds() / 3600, 0.39),
+    (True, (datetime.datetime(2022, 1, 11, 2, 37) - start).total_seconds() / 3600, 3.13),
+    (False, (datetime.datetime(2022, 1, 11, 9, 25) - start).total_seconds() / 3600, 0.6),
+    (True, (datetime.datetime(2022, 1, 11, 14, 56) - start).total_seconds() / 3600, 2.54),
+    (False, (datetime.datetime(2022, 1, 11, 20, 20) - start).total_seconds() / 3600, 0.4),
+    (True, (datetime.datetime(2022, 1, 12, 3, 37) - start).total_seconds() / 3600, 3.07),
+    (False, (datetime.datetime(2022, 1, 12, 10, 10) - start).total_seconds() / 3600, 0.53),
+    (True, (datetime.datetime(2022, 1, 12, 15, 56) - start).total_seconds() / 3600, 2.47),
+    (False, (datetime.datetime(2022, 1, 12, 21, 11) - start).total_seconds() / 3600, 0.36),
+    (True, (datetime.datetime(2022, 1, 13, 4, 34) - start).total_seconds() / 3600, 3.08),
+    (False, (datetime.datetime(2022, 1, 13, 10, 50) - start).total_seconds() / 3600, 0.43),
+    (True, (datetime.datetime(2022, 1, 13, 16, 52) - start).total_seconds() / 3600, 2.53),
+    (False, (datetime.datetime(2022, 1, 13, 21, 59) - start).total_seconds() / 3600, 0.26),
+    (True, (datetime.datetime(2022, 1, 14, 5, 24) - start).total_seconds() / 3600, 3.14),
+    (False, (datetime.datetime(2022, 1, 14, 11, 27) - start).total_seconds() / 3600, 0.31),
+    (True, (datetime.datetime(2022, 1, 14, 17, 40) - start).total_seconds() / 3600, 2.65),
+    (False, (datetime.datetime(2022, 1, 14, 22, 45) - start).total_seconds() / 3600, 0.14),
 ]
 
 

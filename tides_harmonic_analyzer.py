@@ -3,21 +3,21 @@ import math
 import datetime
 import pytz
 
-input_file = open('noaa-tides.csv', 'r')
+input_file = open('tides.csv', 'r')
 
 EST = pytz.timezone('US/Eastern')
 UTC = pytz.timezone('GMT')
-start = datetime.datetime(2021, 1, 1, tzinfo=EST)
+start = datetime.datetime(2022, 1, 1, tzinfo=EST)
 start_delta = (start - datetime.datetime(2021, 1, 1, tzinfo=UTC)).total_seconds() / 3600
 
-# d = list(map(float, input_file.read().split(',')))
-d = list(map(lambda line: float(line.split(',')[1]), input_file.readlines()[1:]))
+d = list(map(float, input_file.read().split(',')))
+# d = list(map(lambda line: float(line.split(',')[1]), input_file.readlines()[1:]))
 input_file.close()
 
 # TODO Use the times in the CSV file
 # TODO Convert the phases to be relative to Jan 1 of the year in UTC
 
-x = [i/10 + start_delta for i in range(len(d))]
+x = [i/60 + start_delta for i in range(len(d))]
 # d = [math.cos(5 * i) + 0.5 * math.cos(12 * i) for i in x]
 
 def get_harmonic(f, x, y, offset):
@@ -69,33 +69,33 @@ frequencies = [
 ]
 
 # TODO: Create a lookup table for offsets by year
-offsets = [ # This is for 2021
-    304.098,
-    0.138,
-    33.743,
-    2.518,
-    248.196,
-    304.678,
-    348.423,
-    17.969,
-    184.784,
-    304.236,
-    0
-]
-
-# offsets = [ # This is for 2022
-#     45.013,
-#     0.113,
-#     46.36,
-#     3.577,
-#     90.026,
-#     44.031,
-#     348.805,
-#     213.77879, 
-#     186.65,
-#     45.126,
+# offsets = [ # This is for 2021
+#     304.098,
+#     0.138,
+#     33.743,
+#     2.518,
+#     248.196,
+#     304.678,
+#     348.423,
+#     17.969,
+#     184.784,
+#     304.236,
 #     0
 # ]
+
+offsets = [ # This is for 2022
+    45.013,
+    0.113,
+    46.36,
+    3.577,
+    90.026,
+    44.031,
+    348.805,
+    213.77879, 
+    186.65,
+    45.126,
+    0
+]
 
 names = [
     'M2',
